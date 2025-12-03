@@ -29,14 +29,21 @@ sritaj_info_mcp_server/
 ## Setup
 
 1. Ensure Python >=3.13 is installed.
-2. Install dependencies using uv (recommended):
-   ```
-   uv sync
-   ```
-   Or using pip:
-   ```
-   pip install -e .
-   ```
+2. Create and activate a virtual environment:
+   - Using uv (recommended):
+     ```
+     uv sync  # Creates .venv and installs dependencies
+     ```
+     To activate the environment (optional, as uv commands work without explicit activation):
+     ```
+     .venv\Scripts\activate  # On Windows
+     ```
+   - Using venv (alternative):
+     ```
+     python -m venv .venv
+     .venv\Scripts\activate  # On Windows
+     pip install -e .
+     ```
 
 ## Running
 
@@ -46,6 +53,23 @@ uv run .\src\mcpserver\__main__.py
 ```
 
 This starts the server and makes it available for MCP clients.
+
+## Using in VS Code Local MCP Server
+
+To integrate this MCP server with VS Code's local MCP setup, add the following configuration to your VS Code MCP settings file:
+
+```json
+"sritaj_info_server": {
+  "command": "uv",
+  "args": [
+    "run",
+    "{Path}}sritaj_info_mcp_server\\src\\mcpserver\\__main__.py"
+  ],
+  "env": {}
+}
+```
+
+Replace `{Path}` with the absolute path to your project directory (e.g., `C:\\AI\\`).
 
 ## Development
 

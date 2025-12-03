@@ -1,4 +1,4 @@
-from mcpserver.sritaj_info_server import mcp
+from sritaj_info_server import mcp
 
 def main():
     mcp.run()
